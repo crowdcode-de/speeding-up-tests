@@ -8,6 +8,7 @@ import io.crowdcode.speedup.bay.model.Bid;
 import io.crowdcode.speedup.bay.repository.AuctionRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -27,6 +28,10 @@ public class AuctionServiceBean implements AuctionService {
 
 
     private AuctionRepository auctionRepository;
+
+    /** The default auction duration in minutes **/
+    @Value("${bay.auction.default.duration:5}")
+    private Integer auctionDefaultDuration = 5;
 
     public AuctionServiceBean() {
     }
@@ -54,7 +59,7 @@ public class AuctionServiceBean implements AuctionService {
                 .setProductUuid(productUuid)
                 .setMinAmount(minAmount)
                 .setBeginDate(LocalDateTime.now())
-                .setExpireDate(LocalDateTime.now().plusMinutes(5));
+                .setExpireDate(LocalDateTime.now().plusMinutes(auctionDefaultDuration));
 
         Auction save = auctionRepository.save(auction);
         return save.getId();
