@@ -1,5 +1,7 @@
 package io.crowdcode.speedup.common.jpa;
 
+import io.crowdcode.speedup.utils.TimeTravelUtils;
+
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 import java.sql.Timestamp;
@@ -19,6 +21,7 @@ public class ZonedDateTimePersistenceConverter implements AttributeConverter<Zon
 
     @Override
     public ZonedDateTime convertToEntityAttribute(Timestamp dbData) {
+        TimeTravelUtils.sleepAWhile();
         if (dbData != null) {
             return ZonedDateTime.ofInstant(dbData.toInstant(), ZoneId.systemDefault());
         } else {

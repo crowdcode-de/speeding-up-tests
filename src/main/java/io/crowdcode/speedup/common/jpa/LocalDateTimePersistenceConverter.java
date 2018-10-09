@@ -1,5 +1,7 @@
 package io.crowdcode.speedup.common.jpa;
 
+import io.crowdcode.speedup.utils.TimeTravelUtils;
+
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 import java.sql.Timestamp;
@@ -25,6 +27,7 @@ public class LocalDateTimePersistenceConverter implements AttributeConverter<Loc
 
     @Override
     public LocalDateTime convertToEntityAttribute(Timestamp dbData) {
+        TimeTravelUtils.sleepAWhile();
         if (dbData != null) {
             return LocalDateTime.ofInstant(dbData.toInstant(), ZoneId.systemDefault());
         } else {
