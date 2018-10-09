@@ -29,7 +29,9 @@ public class AuctionServiceBean implements AuctionService {
 
     private AuctionRepository auctionRepository;
 
-    /** The default auction duration in minutes **/
+    /**
+     * The default auction duration in minutes
+     **/
     @Value("${bay.auction.default.duration:5}")
     private Integer auctionDefaultDuration = 5;
 
