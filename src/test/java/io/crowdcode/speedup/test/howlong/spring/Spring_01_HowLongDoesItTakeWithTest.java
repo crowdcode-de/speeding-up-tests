@@ -22,6 +22,7 @@ public class Spring_01_HowLongDoesItTakeWithTest {
 
     @Autowired
     private ApplicationContext context;
+
     @Autowired
     private String slow01TestBean;
 

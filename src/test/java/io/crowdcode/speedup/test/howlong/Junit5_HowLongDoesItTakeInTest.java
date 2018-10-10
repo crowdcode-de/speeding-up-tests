@@ -19,7 +19,6 @@ import static io.crowdcode.speedup.common.AnsiColor.blue;
 import static io.crowdcode.speedup.common.AnsiColor.green;
 
 @Slf4j
-@Disabled
 public class Junit5_HowLongDoesItTakeInTest {
 
     private static LocalDateTime startTime;
@@ -44,34 +43,39 @@ public class Junit5_HowLongDoesItTakeInTest {
     @BeforeEach
     void setUp() throws InterruptedException {
         log.info(blue("-------- before each for 1s ----" + Thread.currentThread().getName()));
-        TimeUnit.SECONDS.sleep(1);
+        sleepAWhile(1);
     }
 
     @Test
     void test_01() throws InterruptedException {
         log.info(blue("-------- test one for 1s ----" + Thread.currentThread().getName()));
-        TimeUnit.SECONDS.sleep(1);
+        sleepAWhile(1);
         Assertions.assertThat(Boolean.TRUE).isTrue();
     }
 
     @Test
     void test_02() throws InterruptedException {
         log.info(blue("-------- test two for 2s ----" + Thread.currentThread().getName()));
-        TimeUnit.SECONDS.sleep(2);
+        sleepAWhile(2);
         Assertions.assertThat(Boolean.TRUE).isTrue();
     }
 
     @Test
     void test_03() throws InterruptedException {
         log.info(blue("-------- test three for 3s ----" + Thread.currentThread().getName()));
-        TimeUnit.SECONDS.sleep(3);
+        sleepAWhile(3);
         Assertions.assertThat(Boolean.TRUE).isTrue();
     }
 
     @AfterEach
     void tearDown() throws InterruptedException {
         log.info(blue("-------- after each for 1s ----" + Thread.currentThread().getName()));
-        TimeUnit.SECONDS.sleep(1);
+        sleepAWhile(1);
+    }
+
+    public void sleepAWhile(int waitAmount) throws InterruptedException {
+//        TimeUnit.SECONDS.sleep(waitAmount);
+        TimeUnit.MILLISECONDS.sleep(waitAmount);
     }
 
 }
