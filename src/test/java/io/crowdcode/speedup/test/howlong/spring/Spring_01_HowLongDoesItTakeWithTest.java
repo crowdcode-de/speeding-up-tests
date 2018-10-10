@@ -1,4 +1,4 @@
-package io.crowdcode.speedup.bay.test.howlong.spring;
+package io.crowdcode.speedup.test.howlong.spring;
 
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.api.Assertions;
