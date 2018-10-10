@@ -24,7 +24,7 @@ class SprintEntityTest {
         Sprint sprint = testEntityManager.persistFlushFind(
                 new Sprint()
                         .setName("spring test a")
-                        .setGoal("getting faster and faster")
+                        .setGoal("getting hierarchy and hierarchy")
                         .setStartDate(LocalDate.now())
                         .setEndDate(LocalDate.now().plusWeeks(2L))
                         .setCapacity(20)

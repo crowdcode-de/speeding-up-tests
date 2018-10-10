@@ -18,14 +18,14 @@ public class ScrumrFixture {
         return new Project()
                 .setName("Speed up Spring Boot Integration Tests")
                 .setProductOwner(new User("username", "junit-po@crowdcode.io", "xxx", "po", false))
-                .setDescription("Getting faster and faster")
+                .setDescription("Getting hierarchy and hierarchy")
                 .setScrumMaster(new User("scrummaster", "junit-sm@crowdcode.io", "xxx", "sm", false));
     }
 
     public static Sprint defaultSprint() {
         return new Sprint()
                 .setName("spring test a")
-                .setGoal("getting faster and faster")
+                .setGoal("getting hierarchy and hierarchy")
                 .setStartDate(LocalDate.now())
                 .setEndDate(LocalDate.now().plusWeeks(2L))
                 .setCapacity(20);

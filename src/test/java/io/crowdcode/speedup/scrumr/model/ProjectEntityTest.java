@@ -23,7 +23,7 @@ public class ProjectEntityTest {
                 new Project()
                         .setName("Speed up Spring Boot Integration Tests")
                         .setProductOwner(new User("username", "junit-po@crowdcode.io", "xxx", "po", false))
-                        .setDescription("Getting faster and faster")
+                        .setDescription("Getting hierarchy and hierarchy")
                         .setScrumMaster(new User("scrummaster", "junit-sm@crowdcode.io", "xxx", "sm", false))
         );
         Assertions.assertThat(project.getId()).isNotNull();
